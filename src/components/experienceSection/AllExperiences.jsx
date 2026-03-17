@@ -1,5 +1,4 @@
 import SingleExperience from "./SingleExperience";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../framerMotion/variants";
 
@@ -48,53 +47,16 @@ const experiences = [
       "Creating documentation and user guides for delivered solutions.",
     ],
   },
-  {
-    job: "Automation & Robotics Engineer",
-    company: "Afric Light",
-    date: "2023 - Present",
-    responsibilities: [
-      "Managing automation projects from design to deployment.",
-      "Programming and integrating industrial robots and PLC systems.",
-      "Performing preventive and corrective maintenance on automated lines.",
-      "Preparing detailed technical reports and performance documentation.",
-      "Coordinating with cross-functional teams to ensure timely project delivery.",
-    ],
-  },
-  {
-    job: "Automation & Robotics Engineer",
-    company: "Afric Light",
-    date: "2023 - Present",
-    responsibilities: [
-      "Managing automation projects from design to deployment.",
-      "Programming and integrating industrial robots and PLC systems.",
-      "Performing preventive and corrective maintenance on automated lines.",
-      "Preparing detailed technical reports and performance documentation.",
-      "Coordinating with cross-functional teams to ensure timely project delivery.",
-    ],
-  },
 ];
 
 
 const AllExperiences = () => {
   return (
-    <div className="flex flex-wrap md:flex-row sm:flex-col items-start justify-between gap-6">
-  {experiences.map((experience, index) => (
-    <>
-      <SingleExperience key={index} experience={experience} />
-      {index < experiences.length - 1 ? (
-        <motion.div
-          variants={fadeIn("right", 0)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.7 }}
-        >
-          <FaArrowRightLong className="text-6xl text-orange lg:block sm:hidden" />
-        </motion.div>
-      ) : null}
-    </>
-  ))}
-</div>
-
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-stretch mt-8 w-full">
+      {experiences.map((experience, index) => (
+        <SingleExperience key={index} experience={experience} index={index} />
+      ))}
+    </div>
   );
 };
 
